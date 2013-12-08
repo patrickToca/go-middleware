@@ -38,7 +38,7 @@ func nullHandlerFunc(w http.ResponseWriter, r *http.Request) {}
 // func(http.ResponseWriter, *http.Request, http.Handler),
 // Middleware, MiddlewareFunc,
 // func(http.ResponseWriter, *http.Request),
-// http.HandlerFunc and http.Handler.
+// http.HandlerFunc, http.Handler and func(http.Handler) http.Handler.
 func Compose(middleware ...interface{}) http.HandlerFunc {
 	var fn http.HandlerFunc = nullHandlerFunc
 
@@ -60,7 +60,8 @@ func Compose(middleware ...interface{}) http.HandlerFunc {
 			fn = func(w http.ResponseWriter, r *http.Request) { current(w, r); next(w, r) }
 		case http.Handler: // http.HandlerFunc implements http.Handler
 			fn = func(w http.ResponseWriter, r *http.Request) { current.ServeHTTP(w, r); next(w, r) }
-
+		case func(http.Handler) http.Handler:
+			fn = func(w http.ResponseWriter, r *http.Request) { current(next).ServeHTTP(w, r) }
 		default:
 			log.Panicf("Unsupported middleware type '%v' at index %d", reflect.TypeOf(current), i)
 		}

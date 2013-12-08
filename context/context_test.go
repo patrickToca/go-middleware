@@ -1,7 +1,7 @@
 package context
 
 import (
-	"github.com/shelakel/middleware"
+	"github.com/shelakel/go-middleware"
 	"net/http"
 	"testing"
 )

@@ -50,8 +50,9 @@ func TestComposeMiddlewareVariants(t *testing.T) {
 	fn6 := stubMiddleware3
 	fn7 := Middleware(&stubMiddleware{})
 	fn8 := MiddlewareFunc(stubMiddleware2)
+	fn9 := func(h http.Handler) http.Handler { return h }
 
-	Compose(fn1, fn2, fn3, fn4, fn5, fn6, fn7, fn8)
+	Compose(fn1, fn2, fn3, fn4, fn5, fn6, fn7, fn8, fn9)
 }
 
 func TestComposeNilChain(t *testing.T) {
