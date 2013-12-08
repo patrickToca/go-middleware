@@ -6,7 +6,7 @@
     import "github.com/shelakel/go-middleware"
     var handler http.HandlerFunc = middleware.Compose(...)
 
-See [example](https://github.com/shelakel/example/example.go)
+See [example](https://github.com/shelakel/go-middleware/blob/master/example/example.go)
 
 #### Installation
 
@@ -19,6 +19,10 @@ See [GoDoc on Github](http://godoc.org/github.com/shelakel/go-middleware)
 See LICENSE
 
 ### Middleware
+
+*done* packages may be used  
+*work in progress (WIP)* packages should *not* be used - only for inspiration  
+*TODO* packages currently lack implementation  
 
  * context - based on [context](github.com/gorilla/context) - done
  * compression - WIP
@@ -35,8 +39,8 @@ See LICENSE
 
 __Middleware/Web Frameworks (for inspiration)__
 
- * Links indicate interesting implementations
- * \* can be used/converted to middleware
+*Links* indicate interesting implementations  
+*\** can be converted or may be useful in middleware
 
  * [mango](https://github.com/paulbellamy/mango) - context, sessions, error handling, [static file server](https://github.com/paulbellamy/mango/blob/master/static.go), basic auth
  * [martini](https://github.com/codegangsta/martini) - context, request logging, error handling, static file server, buferred response writer
