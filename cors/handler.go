@@ -6,6 +6,7 @@ import (
 
 // See: https://github.com/ServiceStack/ServiceStack/blob/6304fd1bb8e8f9fd604c5ee03933a1cc406819e1/src/ServiceStack/CorsFeature.cs
 // See: https://github.com/ServiceStack/ServiceStack/blob/5d09d439cd1a13712411552e2b3ede5a71af2ee5/src/ServiceStack/EnableCorsAttribute.cs
+// See: https://github.com/streadway/handy/blob/master/cors/cors.go
 
 type CorsOptions struct {
 	AllowOrigin      []string
@@ -20,7 +21,7 @@ func NewCorsOptions() *CorsOptions {
 		AllowOrigin:      make([]string, 0),
 		AllowCredentials: false,
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		AllowHeaders:     []string{"Content-Type", "Accept-Encoding"},
+		AllowHeaders:     []string{"Accept", "Accept-Encoding", "Authorization", "Content-Type", "Origin"},
 	}
 }
 

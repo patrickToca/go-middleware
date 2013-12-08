@@ -60,6 +60,7 @@ __Middleware/Web Frameworks (for inspiration)__
  * [beego](https://github.com/astaxie/beego) - context, [error handling](https://github.com/astaxie/beego/blob/master/middleware/error.go), [cache*](https://github.com/astaxie/beego/tree/master/cache), [validation*](https://github.com/astaxie/beego/tree/master/validation)
  * [traffic](https://github.com/pilu/traffic) - [error handling](https://github.com/pilu/traffic/blob/master/show_errors_middleware.go), [request logging](https://github.com/pilu/traffic/blob/master/logger_middleware.go), static file server
  * [handy](https://github.com/go-web-framework/handy) - context
+ * [handy handlers](https://github.com/streadway/handy) - https redirect, CORS, compression, [request logging](https://github.com/streadway/handy/tree/master/report)
  * [nosurf](https://github.com/justinas/nosurf) - CSRF middleware - can be used but not compatible for chaining as is
  * [revel](https://github.com/robfig/revel) - [data binding](https://github.com/robfig/revel/blob/master/binder.go), [filters](https://github.com/robfig/revel/blob/master/filter.go), [flash cookies](https://github.com/robfig/revel/blob/master/flash.go), [validation*](https://github.com/robfig/revel/blob/master/validation.go) - See [filter](https://github.com/robfig/revel/blob/master/filter.go)
  * [bones](https://github.com/peterskeide/bones) - context, sessions - See [bones.web](https://github.com/peterskeide/bones/tree/master/web)
