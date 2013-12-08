@@ -1,5 +1,17 @@
 ## go-middleware
 
+Middleware is often described as [software glue](http://en.wikipedia.org/wiki/Middleware). **go-middleware** focuses specifically on glueing together functions related to serving HTTP requests (such http.Handler/http.HandlerFunc).  
+
+Middleware is used for authentication (including Openid/OAuth redirects), authorization, request logging, error handling, request scoping, request throttling, request/response buffering, compression/decompression, CORS, CSRF, data binding, routing, content-type inference (rendering the result as JSON, XML as required), handling protocol upgrades (ex. Web Sockets), data hydration (ex. loading data into the request context based on an identifier (header/cookie) such as sessions), pre/post filters and more and are generally considered the 'core' of a web framework.
+
+Having investigated multiple web frameworks on how they implement middleware; I found that *none of them* implemented middleware in what I consider "pure Go":
+
+ * *Pluggability*: Creating middleware or middleware-adapters shouldn't require a dependency on the middleware chaining implementation (ex. Go interfaces are satisfied implicitly) - See [the context middleware](https://github.com/shelakel/go-middleware/blob/master/context/context.go)
+ * *Usability*: Middleware can have multiple forms and shouldn't require satisfying a specific interface (ex. http.Handler/middleware.Middleware) to be used as such - See [middleware.go](https://github.com/shelakel/go-middleware/blob/master/middleware.go) type switch that supports 8 common variants
+ * *Succinctness*: The implementation should be concise and terse to reduce ambiguity and be considered self-documenting. [middleware.go](https://github.com/shelakel/go-middleware/blob/master/middleware.go) is 37 lines excluding white space and comments.
+
+Go programming is different from traditional object oriented programming (OOP) and such existing implementations tend to translate poorly into Go.
+
 ### Example Usage
 
     import "net/http"
