@@ -20,11 +20,11 @@ var (
 // Scopes the Request context so that Set, Get, GetOk, Delete and Clear may be used.
 func Initialize() func(http.ResponseWriter, *http.Request, http.HandlerFunc) {
 	return func(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+		mutex.Lock()
 		if data[r] == nil {
-			mutex.Lock()
 			data[r] = make(map[interface{}]interface{})
-			mutex.Unlock()
 		}
+		mutex.Unlock()
 		defer func() {
 			mutex.Lock()
 			delete(data, r)
