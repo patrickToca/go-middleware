@@ -8,7 +8,7 @@ Having investigated multiple web frameworks on how they implement middleware; I 
 
  * *Pluggability*: Creating middleware or middleware-adapters shouldn't require a dependency on the middleware chaining implementation (ex. Go interfaces are satisfied implicitly) - See [the context middleware](https://github.com/shelakel/go-middleware/blob/master/context/context.go)
  * *Usability*: Middleware can have multiple forms and shouldn't require satisfying a specific interface (ex. http.Handler/middleware.Middleware) to be used as such - See [middleware.go](https://github.com/shelakel/go-middleware/blob/master/middleware.go) type switch that supports 9 common variants
- * *Succinctness*: The implementation should be concise and terse to reduce ambiguity and be considered self-documenting. [middleware.go](https://github.com/shelakel/go-middleware/blob/master/middleware.go) is 37 lines excluding white space and comments.
+ * *Succinctness*: The implementation should be concise and terse to reduce ambiguity and be considered self-documenting. [middleware.go](https://github.com/shelakel/go-middleware/blob/master/middleware.go) is 39 lines excluding white space and comments.
 
 Go programming is different from traditional object oriented programming (OOP) and such existing implementations tend to translate poorly into Go.
 
